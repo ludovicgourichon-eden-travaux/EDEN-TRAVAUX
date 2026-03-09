@@ -1,172 +1,861 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDEN TRAVAUX | Maîtrise d’œuvre, AMO et courtage travaux à Angers</title>
+  <meta name="description" content="EDEN TRAVAUX accompagne vos projets de rénovation, extension et travaux à Angers et en Maine-et-Loire : maîtrise d’œuvre, assistance à maîtrise d’ouvrage et courtage travaux." />
+  <style>
+    :root{
+      --bg:#f7f7f5;
+      --bg-alt:#ffffff;
+      --text:#1f1f1c;
+      --muted:#66665e;
+      --line:#e4e1d9;
+      --primary:#1f3c34;
+      --primary-2:#295246;
+      --accent:#b48a4a;
+      --accent-dark:#96713a;
+      --shadow:0 12px 30px rgba(0,0,0,.08);
+      --radius:18px;
+      --container:1180px;
+    }
 
-<title>EDEN TRAVAUX | Maîtrise d'œuvre et courtage travaux</title>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
 
-<style>
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
 
-body{
-font-family:Arial, sans-serif;
-margin:0;
-background:#f5f5f5;
-color:#333;
-}
+    .container{
+      width:min(var(--container), calc(100% - 32px));
+      margin:auto;
+    }
 
-header{
-background:#111;
-color:white;
-padding:20px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter: blur(10px);
+      background:rgba(247,247,245,.88);
+      border-bottom:1px solid rgba(228,225,217,.8);
+    }
 
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
-}
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:76px;
+      gap:20px;
+    }
 
-.hero{
-background:#222;
-color:white;
-padding:120px 40px;
-text-align:center;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.4px;
+    }
 
-.hero h1{
-font-size:42px;
-margin-bottom:20px;
-}
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:800;
+      box-shadow:var(--shadow);
+    }
 
-.btn{
-background:#c59a3d;
-color:white;
-padding:14px 24px;
-text-decoration:none;
-border-radius:5px;
-}
+    .nav-links{
+      display:flex;
+      gap:26px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
 
-.section{
-padding:80px 40px;
-max-width:1200px;
-margin:auto;
-}
+    .nav-links a{
+      color:var(--muted);
+      font-weight:600;
+      transition:.2s;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
+    .nav-links a:hover{color:var(--primary)}
 
-.card{
-background:white;
-padding:30px;
-border-radius:8px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:700;
+      transition:.2s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+    }
 
-footer{
-background:#111;
-color:white;
-padding:40px;
-text-align:center;
-}
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
 
-</style>
+    .btn-primary:hover{
+      background:var(--accent-dark);
+      transform:translateY(-1px);
+    }
 
+    .btn-secondary{
+      background:#fff;
+      color:var(--primary);
+      border-color:var(--line);
+    }
+
+    .btn-secondary:hover{
+      border-color:var(--primary);
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      padding:72px 0 48px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:34px;
+      align-items:stretch;
+    }
+
+    .hero-card{
+      background:linear-gradient(135deg,#fcfbf8,#f1eee7);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:42px;
+      box-shadow:var(--shadow);
+      min-height:100%;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:.9rem;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--primary);
+      background:rgba(31,60,52,.08);
+      padding:8px 12px;
+      border-radius:999px;
+      margin-bottom:20px;
+    }
+
+    h1,h2,h3{
+      margin:0 0 14px;
+      line-height:1.15;
+    }
+
+    h1{
+      font-size:clamp(2.3rem, 4vw, 4.4rem);
+      letter-spacing:-.03em;
+      max-width:12ch;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1.06rem;
+      max-width:62ch;
+      margin:0 0 26px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:26px;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:8px;
+    }
+
+    .point{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    .point strong{
+      display:block;
+      font-size:1.15rem;
+      color:var(--primary);
+      margin-bottom:4px;
+    }
+
+    .visual{
+      background:
+        linear-gradient(160deg, rgba(31,60,52,.9), rgba(41,82,70,.82)),
+        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80') center/cover;
+      border-radius:28px;
+      min-height:540px;
+      padding:28px;
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .visual::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.48), rgba(0,0,0,.08));
+    }
+
+    .visual-content{
+      position:relative;
+      z-index:1;
+    }
+
+    .visual-badge{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.2);
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    section{
+      padding:34px 0;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:24px;
+      margin-bottom:22px;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      max-width:62ch;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:var(--bg-alt);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .card-icon{
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:rgba(180,138,74,.14);
+      color:var(--accent-dark);
+      font-size:1.4rem;
+      margin-bottom:16px;
+      font-weight:800;
+    }
+
+    .card p{
+      color:var(--muted);
+      margin:0;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .panel{
+      background:var(--bg-alt);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+
+    .checklist{
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .check{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      color:var(--muted);
+    }
+
+    .check b{color:var(--text)}
+
+    .check span:first-child{
+      flex:0 0 26px;
+      height:26px;
+      border-radius:50%;
+      background:rgba(31,60,52,.1);
+      display:grid;
+      place-items:center;
+      color:var(--primary);
+      font-size:.9rem;
+      font-weight:800;
+      margin-top:1px;
+    }
+
+    .project-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .project{
+      background:var(--bg-alt);
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .project-image{
+      height:220px;
+      background-size:cover;
+      background-position:center;
+    }
+
+    .project-body{
+      padding:22px;
+    }
+
+    .project small{
+      color:var(--accent-dark);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .project p{
+      margin:10px 0 0;
+      color:var(--muted);
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .step{
+      background:var(--bg-alt);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .step-number{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      background:var(--primary);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      margin-bottom:16px;
+    }
+
+    .zone{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      border-radius:28px;
+      padding:38px;
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+
+    .zone p{
+      color:rgba(255,255,255,.86);
+      margin:0;
+    }
+
+    .zone-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .chip{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.18);
+      font-weight:700;
+    }
+
+    .contact{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:24px;
+    }
+
+    .contact-card, .contact-form{
+      background:var(--bg-alt);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .contact-item{
+      padding:16px 18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fcfcfa;
+    }
+
+    form{
+      display:grid;
+      gap:14px;
+    }
+
+    input, textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:15px 16px;
+      font:inherit;
+      background:#fff;
+      color:var(--text);
+      outline:none;
+    }
+
+    input:focus, textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(180,138,74,.12);
+    }
+
+    textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    .form-note{
+      font-size:.92rem;
+      color:var(--muted);
+      margin:0;
+    }
+
+    footer{
+      padding:34px 0 50px;
+    }
+
+    .footer{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+      padding-top:24px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+
+    @media (max-width: 1050px){
+      .hero-grid,
+      .split,
+      .contact,
+      .cards,
+      .project-grid,
+      .steps{
+        grid-template-columns:1fr;
+      }
+
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+
+      .visual{
+        min-height:400px;
+      }
+    }
+
+    @media (max-width: 760px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:14px 0;
+      }
+
+      .nav-links{
+        gap:14px;
+      }
+
+      .hero-card,
+      .panel,
+      .card,
+      .contact-card,
+      .contact-form,
+      .zone{
+        padding:22px;
+      }
+
+      h1{
+        max-width:none;
+      }
+
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<h2>EDEN TRAVAUX</h2>
+  <div class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-mark">ET</span>
+        <span>EDEN TRAVAUX</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#methode">Méthode</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="#contact">Demander un échange</a>
+      </div>
+    </div>
+  </div>
 
-<nav>
-<a href="#">Accueil</a>
-<a href="#">Maîtrise d'œuvre</a>
-<a href="#">Courtage travaux</a>
-<a href="#">Réalisations</a>
-<a href="#">Contact</a>
-</nav>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">Maîtrise d’œuvre • AMO • Courtage travaux</div>
+          <h1>Vos travaux pilotés avec méthode, clarté et exigence.</h1>
+          <p>
+            EDEN TRAVAUX accompagne les projets de rénovation, d’extension et d’amélioration de l’habitat
+            avec une approche structurée : définition du besoin, consultation des entreprises, analyse des devis,
+            coordination technique et suivi d’exécution.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Obtenir un premier contact</a>
+            <a class="btn btn-secondary" href="#services">Découvrir les services</a>
+          </div>
+          <div class="hero-points">
+            <div class="point">
+              <strong>Interlocuteur unique</strong>
+              Coordination claire entre maître d’ouvrage et entreprises.
+            </div>
+            <div class="point">
+              <strong>Vision chantier</strong>
+              Arbitrages techniques, économiques et organisationnels.
+            </div>
+            <div class="point">
+              <strong>Approche locale</strong>
+              Intervention sur Angers et le Maine-et-Loire.
+            </div>
+          </div>
+        </div>
 
-</header>
+        <div class="visual">
+          <div class="visual-content">
+            <div class="visual-badge">Habitat • Rénovation • Suivi de projet</div>
+            <h2>Un accompagnement orienté résultats</h2>
+            <p>
+              Sécuriser les décisions, fluidifier le chantier et garder la maîtrise du budget.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Des prestations adaptées aux projets d’habitat</h2>
+          </div>
+          <p>
+            Une offre claire pour aider les particuliers, investisseurs et prescripteurs
+            à cadrer les travaux, sélectionner les bons intervenants et suivre l’exécution.
+          </p>
+        </div>
 
-<section class="hero">
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">01</div>
+            <h3>Maîtrise d’œuvre</h3>
+            <p>
+              Analyse du projet, préparation technique, consultation des entreprises,
+              mise au point, coordination et suivi de chantier jusqu’à la réception.
+            </p>
+          </article>
 
-<h1>Maîtrise d'œuvre & Courtage Travaux</h1>
+          <article class="card">
+            <div class="card-icon">02</div>
+            <h3>Assistance à maîtrise d’ouvrage</h3>
+            <p>
+              Appui au maître d’ouvrage pour clarifier les besoins, arbitrer les choix,
+              comparer les offres et sécuriser les décisions avant engagement.
+            </p>
+          </article>
 
-<p>Accompagnement de vos projets de rénovation, extension et construction.</p>
+          <article class="card">
+            <div class="card-icon">03</div>
+            <h3>Courtage travaux</h3>
+            <p>
+              Mise en relation avec des entreprises qualifiées, analyse des devis
+              et recherche du meilleur équilibre entre qualité, coût et délais.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<br>
+    <section id="expertise">
+      <div class="container split">
+        <div class="panel">
+          <div class="eyebrow">Pourquoi EDEN TRAVAUX</div>
+          <h2>Une logique terrain avant tout</h2>
+          <p style="color:var(--muted);margin:0;">
+            Chaque projet nécessite une lecture technique précise, une méthode de consultation sérieuse
+            et une conduite d’opération pragmatique pour éviter les dérives de coût, de planning et de qualité.
+          </p>
+          <div class="checklist">
+            <div class="check"><span>✓</span><span><b>Cadre clair :</b> besoins, budget, contraintes et priorités identifiés dès le départ.</span></div>
+            <div class="check"><span>✓</span><span><b>Décisions sécurisées :</b> comparaison des solutions et lecture critique des propositions.</span></div>
+            <div class="check"><span>✓</span><span><b>Suivi rigoureux :</b> points d’avancement, coordination et anticipation des interfaces chantier.</span></div>
+            <div class="check"><span>✓</span><span><b>Vision économique :</b> recherche du bon niveau de prestation au bon coût.</span></div>
+          </div>
+        </div>
 
-<a class="btn" href="#">Demander un devis</a>
+        <div class="panel">
+          <div class="eyebrow">Typologies de mission</div>
+          <h2>Rénovation, amélioration et transformation</h2>
+          <div class="checklist">
+            <div class="check"><span>•</span><span>Rénovation intérieure de logements et maisons</span></div>
+            <div class="check"><span>•</span><span>Reconfiguration d’espaces et amélioration fonctionnelle</span></div>
+            <div class="check"><span>•</span><span>Travaux en copropriété et coordination multi-lots</span></div>
+            <div class="check"><span>•</span><span>Préparation de dossiers techniques et consultation d’entreprises</span></div>
+            <div class="check"><span>•</span><span>Accompagnement de projets pour particuliers et partenaires prescripteurs</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <section id="realisations">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Exemples de projets accompagnés</h2>
+          </div>
+          <p>
+            Présentation type des opérations pouvant être encadrées dans le cadre
+            d’une mission de maîtrise d’œuvre, d’AMO ou de courtage travaux.
+          </p>
+        </div>
 
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-image" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="project-body">
+              <small>Rénovation intérieure</small>
+              <h3>Réorganisation complète d’un logement</h3>
+              <p>
+                Reprise des volumes, consultation des lots techniques et pilotage du chantier
+                pour améliorer confort, fonctionnalité et cohérence d’ensemble.
+              </p>
+            </div>
+          </article>
 
+          <article class="project">
+            <div class="project-image" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="project-body">
+              <small>Coordination travaux</small>
+              <h3>Projet multi-lots avec mise au point technique</h3>
+              <p>
+                Analyse des interfaces entre corps d’état, optimisation des devis,
+                planification et suivi d’exécution avec reporting régulier.
+              </p>
+            </div>
+          </article>
 
-<section class="section">
+          <article class="project">
+            <div class="project-image" style="background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="project-body">
+              <small>Habitat & valorisation</small>
+              <h3>Travaux d’amélioration et valorisation patrimoniale</h3>
+              <p>
+                Accompagnement pour des travaux visant à fiabiliser un bien,
+                améliorer son usage et renforcer sa valeur à long terme.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<h2>Nos services</h2>
+    <section id="methode">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Une méthode simple et lisible</h2>
+          </div>
+          <p>
+            Une progression structurée pour faire avancer un projet sans perdre de temps
+            sur les arbitrages, les relances ou les points flous.
+          </p>
+        </div>
 
-<br>
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Analyse du besoin</h3>
+            <p>Écoute du projet, contraintes techniques, budget cible et niveau d’accompagnement attendu.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Cadrage technique</h3>
+            <p>Définition des prestations, préparation des consultations et structuration du dossier.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>Consultation / arbitrage</h3>
+            <p>Lecture des devis, analyse comparative et aide à la décision avant engagement.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">4</div>
+            <h3>Suivi d’exécution</h3>
+            <p>Coordination, contrôle d’avancement, points de chantier et réception des travaux.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<div class="grid">
+    <section>
+      <div class="container">
+        <div class="zone">
+          <div class="eyebrow" style="background:rgba(255,255,255,.12);color:#fff;">Zone d’intervention</div>
+          <h2>Angers et Maine-et-Loire</h2>
+          <p>
+            EDEN TRAVAUX accompagne prioritairement les projets situés sur Angers,
+            Angers Loire Métropole et plus largement en Maine-et-Loire selon la nature de la mission.
+          </p>
+          <div class="zone-list">
+            <span class="chip">Angers</span>
+            <span class="chip">Angers Loire Métropole</span>
+            <span class="chip">Maine-et-Loire</span>
+            <span class="chip">Habitat</span>
+            <span class="chip">Rénovation</span>
+            <span class="chip">Travaux</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
+    <section id="contact">
+      <div class="container contact">
+        <div class="contact-card">
+          <div class="eyebrow">Prise de contact</div>
+          <h2>Parlons de votre projet</h2>
+          <p style="color:var(--muted);margin:0;">
+            Pour un premier échange, une analyse de besoin ou un accompagnement sur votre opération,
+            utilisez les coordonnées ci-dessous ou le formulaire.
+          </p>
 
-<h3>Maîtrise d'œuvre</h3>
+          <div class="contact-list">
+            <div class="contact-item">
+              <strong>EDEN TRAVAUX</strong><br />
+              Maîtrise d’œuvre, AMO et courtage travaux
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong><br />
+              l.gourichon@edentravaux.fr
+            </div>
+            <div class="contact-item">
+              <strong>Téléphone</strong><br />
+              06 48 48 65 35
+            </div>
+            <div class="contact-item">
+              <strong>Adresse</strong><br />
+              8 rue de la Jolivetterie, 49130 Sainte-Gemmes-sur-Loire
+            </div>
+          </div>
+        </div>
 
-<p>Conception, consultation des entreprises et suivi complet de vos travaux.</p>
+        <div class="contact-form">
+          <h3>Demande de premier contact</h3>
+          <form>
+            <input type="text" placeholder="Nom / société" />
+            <input type="email" placeholder="Email" />
+            <input type="tel" placeholder="Téléphone" />
+            <textarea placeholder="Décrivez brièvement votre projet"></textarea>
+            <button class="btn btn-primary" type="button">Envoyer votre demande</button>
+          </form>
+          <p class="form-note">
+            Formulaire de démonstration. Pour une réception réelle des messages, il faudra connecter le formulaire à un service d’envoi.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-</div>
-
-<div class="card">
-
-<h3>Courtage travaux</h3>
-
-<p>Mise en relation avec des entreprises qualifiées et négociation des devis.</p>
-
-</div>
-
-<div class="card">
-
-<h3>Assistance technique</h3>
-
-<p>Analyse technique, chiffrage et accompagnement des maîtres d'ouvrage.</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<h2>Zone d'intervention</h2>
-
-<p>Angers et Maine-et-Loire</p>
-
-</section>
-
-
-
-<footer>
-
-<p>© EDEN TRAVAUX</p>
-
-<p>Maîtrise d'œuvre et courtage travaux</p>
-
-</footer>
+  <footer>
+    <div class="container footer">
+      <div>
+        <strong>EDEN TRAVAUX</strong><br />
+        Maîtrise d’œuvre • Assistance à maîtrise d’ouvrage • Courtage travaux
+      </div>
+      <div>
+        Angers • Maine-et-Loire
+      </div>
+    </div>
+  </footer>
 
 </body>
-
 </html>
